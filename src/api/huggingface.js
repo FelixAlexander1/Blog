@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const NEWSAPI_KEY = '6f73c56cc6b642028c7d522e14b6ab80';  // Sustituye con tu clave API de NewsAPI
+const NEWSAPI_KEY = process.env.REACT_APP_NEWS_API_KEY;  // Sustituye con tu clave API de NewsAPI
 
 // Función para obtener noticias
 async function fetchNews(query) {
@@ -25,7 +25,7 @@ async function fetchNews(query) {
 
 // Función para generar el resumen con NLP Cloud
 async function summarizeArticle(text) {
-  const NLP_CLOUD_API_KEY = 'adb0af59da09ba09d26c82a9335874b29f43b3ec'; // Sustituye con tu clave de NLP Cloud
+  const NLP_CLOUD_API_KEY = process.env.REACT_APP_NLP_CLOUD_API_KEY; // Sustituye con tu clave de NLP Cloud
 
   try {
     const response = await axios.post(

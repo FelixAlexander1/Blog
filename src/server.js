@@ -2,6 +2,7 @@ import express from 'express';
 import axios from 'axios';
 import cors from 'cors';
 import cron from 'node-cron';
+import dotenv from 'dotenv'; 
 
 const app = express();
 const port = 3001;
@@ -13,8 +14,8 @@ app.use(cors({
 }));
 
 // Tu clave API de NLP Cloud
-const NLP_CLOUD_API_KEY = 'adb0af59da09ba09d26c82a9335874b29f43b3ec';
-const NEWSAPI_KEY = '6f73c56cc6b642028c7d522e14b6ab80';
+const NLP_CLOUD_API_KEY = process.env.REACT_APP_NLP_CLOUD_API_KEY;
+const NEWSAPI_KEY = process.env.REACT_APP_NEWS_API_KEY;
 let cachedNews = [];
 
 app.use(express.json());

@@ -78,14 +78,19 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const theme = useTheme(); // Obtenemos el tema actual
+  
 
   useEffect(() => {
+
+    
     const fetchAndDisplayNews = async () => {
       try {
+        const apiKey = import.meta.env.VITE_REACT_APP_NEWS_API_KEY; 
+    
         const response = await axios.get('https://newsapi.org/v2/everything', {
           params: {
             q: 'tecnología médica',
-            apiKey: '6f73c56cc6b642028c7d522e14b6ab80',
+            apiKey: apiKey,  // Usando la clave correctamente
           },
         });
 
