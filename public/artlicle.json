@@ -1,0 +1,21 @@
+
+[
+    {
+      "id": 1,
+      "title": "Introducción a React",
+      "excerpt": "React es una librería de JavaScript para construir interfaces...",
+      "content": "React es una librería que te permite construir interfaces de usuario de manera eficiente..."
+    },
+    {
+      "id": 2,
+      "title": "¿Qué es Node.js?",
+      "excerpt": "Node.js es un entorno de ejecución para JavaScript...",
+      "content": "Node.js es un entorno de ejecución de JavaScript del lado del servidor..."
+    },
+    {
+      "id": 3,
+      "title": "CSS Grid vs Flexbox",
+      "excerpt": "CSS Grid y Flexbox son dos herramientas potentes para diseño web...",
+      "content": "CSS Grid y Flexbox son herramientas que permiten crear diseños complejos en la web..."
+    }
+  ]
