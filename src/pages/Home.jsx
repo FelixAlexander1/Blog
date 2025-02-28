@@ -90,7 +90,7 @@ const Home = () => {
         const response = await axios.get('https://newsapi.org/v2/everything', {
           params: {
             q: 'tecnología médica',
-            apiKey: apiKey,  // Usando la clave correctamente
+            apiKey: apiKey,  
           },
         });
 

@@ -1,19 +1,19 @@
 import axios from 'axios';
 
-const NEWSAPI_KEY = process.env.REACT_APP_NEWS_API_KEY;  // Sustituye con tu clave API de NewsAPI
+const NEWSAPI_KEY = process.env.REACT_APP_NEWS_API_KEY;  
 
 // Función para obtener noticias
 async function fetchNews(query) {
   try {
     const response = await axios.get('https://newsapi.org/v2/everything', {
       params: {
-        q: query,  // La palabra clave para la búsqueda de noticias (por ejemplo, "tecnología médica")
-        apiKey: NEWSAPI_KEY,  // Tu clave API de NewsAPI
+        q: query,  
+        apiKey: NEWSAPI_KEY,  
       },
     });
 
     if (response.status === 200) {
-      return response.data.articles.slice(0, 5);  // Limita a los primeros 5 artículos
+      return response.data.articles.slice(0, 5);  
     } else {
       throw new Error('No se pudieron obtener las noticias.');
     }
@@ -33,7 +33,7 @@ async function summarizeArticle(text) {
       { text: text },  // El texto que quieres resumir
       {
         headers: {
-          'Authorization': `Bearer ${NLP_CLOUD_API_KEY}`,  // La clave API de NLP Cloud
+          'Authorization': `Bearer ${NLP_CLOUD_API_KEY}`,
           'Content-Type': 'application/json',
         },
       }
@@ -54,7 +54,7 @@ async function summarizeArticle(text) {
 // Función para obtener y resumir las noticias
 async function getAndSummarizeNews(query) {
   try {
-    // Paso 1: Obtener las noticias más recientes sobre un tema específico
+    //Obtener las noticias más recientes sobre un tema específico
     const articles = await fetchNews(query);
 
     if (articles.length === 0) {
@@ -62,7 +62,7 @@ async function getAndSummarizeNews(query) {
       return []; // Retorna un array vacío si no hay noticias
     }
 
-    // Paso 2: Resumir cada artículo
+    // Resumir cada artículo
     // Modificación del mapeo de artículos para incluir la URL completa
 const summaries = await Promise.all(
   articles.map(async (article) => {

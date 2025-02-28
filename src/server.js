@@ -8,7 +8,7 @@ const app = express();
 const port = 3001;
 
 app.use(cors({
-    origin: '*', // Permite todas las solicitudes (solo para desarrollo)
+    origin: '*', // Permite todas las solicitudes
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
