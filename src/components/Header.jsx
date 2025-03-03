@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const HeaderWrapper = styled.header`
   background: ${(props) => (props.theme.mode === 'dark' ? '#222' : 'linear-gradient(to right, #3498db, #1abc9c)')};
@@ -47,10 +49,18 @@ const Nav = styled.nav`
   }
 `;
 
-const ThemeButton = styled.button`
+const TopSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
   top: 20px;
   right: 20px;
+  left: 20px;
+  margin-top: 10px;
+`;
+
+const ThemeButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
@@ -63,12 +73,33 @@ const ThemeButton = styled.button`
   }
 `;
 
+const UserSection = styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+`;
+
+const UserName = styled.span`
+  font-size: 1.1rem;
+  color: ${(props) => (props.theme.mode === 'dark' ? '#ffcc00' : 'white')};
+`;
+
+const LogoutButton = styled.button`
+  background: none;
+  border: none;
+  color: ${(props) => (props.theme.mode === 'dark' ? '#ffcc00' : 'white')};
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  &:hover {
+    color: ${(props) => (props.theme.mode === 'dark' ? '#ffd700' : '#ffd700')};
+  }
+`;
+
 function Header({ toggleTheme, theme }) {
+  const { user, logout } = useContext(AuthContext); // Usamos AuthContext para obtener el usuario
   return (
     <HeaderWrapper>
-      <ThemeButton onClick={toggleTheme} aria-label="Cambiar tema">
-        {theme === 'dark' ? <FaSun /> : <FaMoon />}
-      </ThemeButton>
       <HeaderContainer>
         <Title>TecnoBlog</Title>
         <Subtitle>Explora las últimas noticias en tecnología</Subtitle>
@@ -77,6 +108,26 @@ function Header({ toggleTheme, theme }) {
           <Link to="/about">Acerca de</Link>
         </Nav>
       </HeaderContainer>
+
+      {/* Sección superior derecha con el botón de tema y el área de usuario */}
+      <TopSection>
+        <ThemeButton onClick={toggleTheme} aria-label="Cambiar tema">
+          {theme === 'dark' ? <FaSun /> : <FaMoon />}
+        </ThemeButton>
+
+        <UserSection>
+          {user ? (
+            <>
+              <UserName>{user}</UserName>
+              <LogoutButton onClick={logout}>Cerrar sesión</LogoutButton>
+            </>
+          ) : (
+            <Link to="/login" style={{ color: theme === 'dark' ? '#ffcc00' : 'white' }}>
+              Iniciar sesión
+            </Link>
+          )}
+        </UserSection>
+      </TopSection>
     </HeaderWrapper>
   );
 }

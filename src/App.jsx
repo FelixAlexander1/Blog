@@ -4,7 +4,9 @@ import Home from './pages/Home';
 import ArticlePage from './pages/ArticlePage';
 import About from './components/About';
 import Header from './components/Header';
+import LoginPage from './pages/LoginPage';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { AuthProvider } from './context/AuthContext';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -24,17 +26,21 @@ const App = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-        <Header toggleTheme={toggleTheme} theme={theme.mode} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/article/:id" element={<ArticlePage />} />
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <AuthProvider>
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <BrowserRouter>
+      <Header toggleTheme={toggleTheme} theme={theme.mode} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/article/:id" element={<ArticlePage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </BrowserRouter>
+  </ThemeProvider>
+</AuthProvider>
+
   );
 };
 

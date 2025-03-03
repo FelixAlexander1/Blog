@@ -31,7 +31,7 @@ async function fetchNews(query) {
         });
 
         if (response.status === 200) {
-            return response.data.articles.slice(0, 5);
+            return response.data.articles.slice(0, 6);
         } else {
             throw new Error('No se pudieron obtener las noticias.');
         }

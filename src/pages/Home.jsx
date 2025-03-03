@@ -94,7 +94,7 @@ const Home = () => {
           },
         });
 
-        const articles = response.data.articles.slice(0, 5);
+        const articles = response.data.articles.slice(0, 6);
         const summarizedArticles = articles.map((article, i) => ({
           id: i,
           title: article.title,
