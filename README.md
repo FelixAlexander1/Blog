@@ -1,8 +1,30 @@
-# React + Vite
+# Blog-Blog 📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un blog minimalista construido con **React** y **Vite**, con funcionalidades modernas de frontend y un pequeño servidor backend. Este proyecto presenta artículos de blog y esta conectado a modelos de IA a través de APIs.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [Node.js](https://nodejs.org/)
+- [Hugging Face API (sugerido)](https://huggingface.co/)
+- CSS moderno
+
+## 📦 Instalación
+
+1. Clona el repositorio:
+
+'```bash
+git clone https://github.com/tu-usuario/Blog-Blog.git
+cd Blog-Blog
+npm install
+npm run dev'
+
+✨ Funcionalidades
+Visualización de artículos desde un archivo JSON.
+
+Componentes reutilizables (About, ArticleList, etc).
+
+Posible integración con modelos de IA vía API (huggingface.js).
+
+Diseño moderno y ligero con Vite.
